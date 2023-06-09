@@ -10,7 +10,7 @@ public class BookManagementSystem {
         BookService bookService = new BookService();
 
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+
             System.out.println("欢迎使用图书管理系统，请输入对应的数字选择操作：");
             System.out.println("1. 添加图书");
             System.out.println("2. 删除图书");
@@ -121,6 +121,7 @@ public class BookManagementSystem {
                             System.out.println("找不到图书！");
                         } else{
                             System.out.println("查询结果如下：");
+                            System.out.println("ID\t图书名称\t作者\t分类\t出版社\t出版时间\t\t价格");
                             for (Book queryBook : books) {
                                 System.out.println(queryBook.getId() + "\t" + queryBook.getName() + "\t" + queryBook.getAuthor() + "\t" + queryBook.getCategory() + "\t" + queryBook.getPublisher() + "\t" + queryBook.getTime() + "\t" + queryBook.getPrice());
                             }
@@ -138,8 +139,12 @@ public class BookManagementSystem {
                             System.out.println("找不到图书！");
                         } else {
                             System.out.println("查询结果如下：");
+                            System.out.println("ID\t图书名称\t作者\t分类\t出版社\t出版时间\t价格");
                             for (Book queryBook : books) {
-                                System.out.println(queryBook.getId() + "\t" + queryBook.getName() + "\t" + queryBook.getAuthor() + "\t" + queryBook.getCategory() + "\t" + queryBook.getPublisher() + "\t" + queryBook.getTime() + "\t" + queryBook.getPrice());
+                                System.out.println(queryBook.getId() + "\t" + queryBook.getName() + "\t"
+                                        + queryBook.getAuthor() + "\t" + queryBook.getCategory() + "\t"
+                                        + queryBook.getPublisher() + "\t" + queryBook.getTime() + "\t"
+                                        + queryBook.getPrice());
                             }
                         }
                     } catch (SQLException e) {
@@ -155,6 +160,7 @@ public class BookManagementSystem {
                             System.out.println("找不到图书！");
                         } else {
                             System.out.println("查询结果如下：");
+                            System.out.println("ID\t图书名称\t作者\t分类\t出版社\t出版时间\t价格");
                             for (Book queryBook : books) {
                                 System.out.println(queryBook.getId() + "\t" + queryBook.getName() + "\t" + queryBook.getAuthor() + "\t" + queryBook.getCategory() + "\t" + queryBook.getPublisher() + "\t" + queryBook.getTime() + "\t" + queryBook.getPrice());
                             }
@@ -170,11 +176,12 @@ public class BookManagementSystem {
                             System.out.println("暂无图书！");
                         } else {
                             System.out.println("查询结果如下：");
-                            System.out.println("ID\t\t图书名称\t\t作者\t\t类别\t\t出版社\t\t出版时间\t\t价格");
+                            System.out.println("ID\t图书名称\t\t作者\t\t类别\t\t出版社\t\t出版时间\t\t价格");
                             for (Book queryBook : books) {
-                                System.out.print(queryBook.getId() + "\t\t" + queryBook.getName() + "\t\t"
-                                        + queryBook.getAuthor() + "\t\t" + queryBook.getCategory() + "\t" +
-                                        queryBook.getPublisher() + "\t\t" + queryBook.getTime() + "\t\t" + queryBook.getPrice());
+                                System.out.print(queryBook.getId() + "\t" + queryBook.getName() + "\t\t"
+                                        + queryBook.getAuthor() + "\t\t" + queryBook.getCategory() + "\t\t" +
+                                        queryBook.getPublisher() + "\t\t" + queryBook.getTime() + "\t" +
+                                        queryBook.getPrice());
                                 System.out.print("\n");
                             }
                         }
@@ -191,4 +198,3 @@ public class BookManagementSystem {
             }
         }
     }
-}
