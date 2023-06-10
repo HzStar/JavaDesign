@@ -5,8 +5,8 @@ import java.util.Scanner;
 import java.sql.Date;
 
 public class BookManager {
-    private BookService bookService;
-
+    static BookService bookService = new BookService();
+    static BookDataProcessor dataProcessor = new BookDataProcessor(bookService);
     public BookManager() {
         bookService = new BookService();
     }
@@ -181,6 +181,16 @@ public class BookManager {
                 case 7:
                     bookManager.queryAllBooks();
                     break;
+                case 8:
+                    // 导入图书信息
+                    dataProcessor.importBooks();
+                    break;
+
+                case 9:
+                    // 备份图书信息
+                    dataProcessor.backupBooks();
+                    break;
+
                 case 0:
                     System.out.println("感谢使用图书管理系统，再见！");
                     System.exit(0);

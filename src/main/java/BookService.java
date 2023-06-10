@@ -63,4 +63,19 @@ public class BookService {
     public List<Book> queryAllBooks() throws SQLException {
         return bookDao.queryAllBooks();
     }
+
+
+    public int importBooks(List<Book> books) throws SQLException {
+        int importedCount = 0;
+        for (Book book : books) {
+            try {
+                addBook(book);
+                importedCount++;
+            } catch (SQLException e) {
+                System.out.println("导入图书失败，图书信息：" + book.toString() + "，错误信息为：" + e.getMessage());
+            }
+        }
+        return importedCount;
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class BookManagementSystem {
     public static void main(String[] args) throws ParseException {
         BookService bookService = new BookService();
-
+        BookDataProcessor dataProcessor = new BookDataProcessor(bookService);
         Scanner scanner = new Scanner(System.in);
 
             System.out.println("欢迎使用图书管理系统，请输入对应的数字选择操作：");
@@ -19,9 +19,12 @@ public class BookManagementSystem {
             System.out.println("5. 按作者查询图书");
             System.out.println("6. 按分类查询图书");
             System.out.println("7. 查询所有图书");
+            System.out.println("8. 导入图书信息");
+            System.out.println("9. 备份图书信息");
             System.out.println("0. 退出系统");
             int choice = scanner.nextInt();
             scanner.nextLine();
+
 
             switch (choice) {
                 case 1:
@@ -188,6 +191,15 @@ public class BookManagementSystem {
                     } catch (SQLException e) {
                         System.out.println("查询所有图书失败，错误信息为：" + e.getMessage());
                     }
+                    break;
+                case 8:
+                    // 导入图书信息
+                    dataProcessor.importBooks();
+                    break;
+
+                case 9:
+                    // 备份图书信息
+                    dataProcessor.backupBooks();
                     break;
                 case 0:
                     System.out.println("感谢使用图书管理系统，再见！");
